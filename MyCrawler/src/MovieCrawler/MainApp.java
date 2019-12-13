@@ -11,9 +11,9 @@ public class MainApp {
 	public static void main(String[] args) throws Exception {
 		/*
 		 * 드라이버설정
-		 * 크롬 브라우저에 chrome://version/ 들어가서 버전에맞는 드라이버 설치후 경로 설정
+		 * 크롬 브라우저에 chrome://version/ 들어가서 버전에맞는 크롬드라이버 설치후 경로 설정
 		 */
-		/*
+		
 		WebDriver driver;
 		String driverPath="D:\\chromedriver.exe";
 		//String driverPath="/Users/choijinhap/chromedriver";
@@ -25,7 +25,7 @@ public class MainApp {
 		driver = new ChromeDriver(chromeOptions);
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
-		*/
+		
 		
 		
 		/*
@@ -39,6 +39,7 @@ public class MainApp {
 		Yes24Crawler yes24 = new Yes24Crawler(100);
 		
 		WavveCrawler wavve = new WavveCrawler(100);
+		PlaystoreCrawler ps=new PlaystoreCrawler(100, driver);
 		
 		/* 
 		 * 크롤러들 공통 변수
@@ -53,13 +54,13 @@ public class MainApp {
 		 * String[] type;
 		 */
 		
-		naver.crawl();
-		yes24.crawl();
-		wavve.crawl();
-		
+		//naver.crawl();
+		//yes24.crawl();
+		//wavve.crawl();
+		ps.crawl();
 		
 		//테스트
-		
+		/*
 		for (int i = 0; i < 100; i++) {
 			System.out.println(i + "번");
 			System.out.println(naver.getTitle()[i] + " " + naver.getPrice()[i]);
@@ -67,7 +68,7 @@ public class MainApp {
 			System.out.println(wavve.getTitle()[i] + " " + wavve.getPrice()[i]);
 			System.out.println("======");
 		}
-		
+		*/
 	}
 
 }
