@@ -36,6 +36,7 @@ public class NaverCrawler {
 	public void crawl() throws Exception {
 		int idx = 0;
 		for (int pagenum = 1; pagenum < 6; pagenum++) {
+			if(idx>=size) {break;}
 			Elements movies = getMovies(pagenum);
 			for (Element element : movies) {
 				String tempTitle = element.select("a").attr("title");

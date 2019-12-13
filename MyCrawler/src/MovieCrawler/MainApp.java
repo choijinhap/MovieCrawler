@@ -26,10 +26,13 @@ public class MainApp {
 		driver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
 		
 		
+		//네이버는 인기순위가 100위까지 밖에없음
+		NaverCrawler naver = new NaverCrawler(80);
 		
-		NaverCrawler naver = new NaverCrawler(100);
 		Yes24Crawler yes24 = new Yes24Crawler(100);
-		WavveCrawler wavve = new WavveCrawler(100, driver);
+		
+		//wavve의 경우 500위까지는 확인됨 그이상은 확인 안해봄.
+		WavveCrawler wavve = new WavveCrawler(500);
 		/* 
 		 * String[] title; 
 		 * String[] price; 
@@ -40,10 +43,13 @@ public class MainApp {
 		 * String[] content; 
 		 * String[] type;
 		 */
-	//	naver.crawl();
+		naver.crawl();
 	//	yes24.crawl();
-		wavve.crawl();
-
+		//wavve.crawl();
+		
+		for(int i=0;i<80;i++) {
+			System.out.println(i+" "+naver.getTitle()[i]);
+		}
 		/*
 		for (int i = 0; i < 100; i++) {
 			System.out.println(i + "번");
