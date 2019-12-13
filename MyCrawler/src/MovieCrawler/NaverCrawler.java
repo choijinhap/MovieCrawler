@@ -54,7 +54,7 @@ public class NaverCrawler {
 				Elements detail = newdoc.select(".end_dsc");
 				String tempContent = detail.text();
 				if (tempContent.length() > 2
-						&& tempContent.substring(tempContent.length() - 2, tempContent.length()).equals("����")) {
+						&& tempContent.substring(tempContent.length() - 2, tempContent.length()).equals("접기")) {
 					tempContent = tempContent.substring(0, tempContent.length() - 2);
 				}
 				content[idx] = tempContent;
