@@ -31,11 +31,9 @@ public class MainApp {
 		/*
 		 * 생성자 인자는 크롤링할 개수
 		 * 네이버는 사이트 자체에 100위까지 밖에 없음
-		 * yes24는 현재 100위까지만 구하도록 구현
-		 * 웨이브는 500위 까지는 테스트 완료
+		 * 예스24,웨이브는 500위까지 테스트완료
 		 */
 	
-		
 		NaverCrawler naver = new NaverCrawler(100);
 		
 		Yes24Crawler yes24 = new Yes24Crawler(100);
@@ -59,7 +57,9 @@ public class MainApp {
 		yes24.crawl();
 		wavve.crawl();
 		
+		
 		//테스트
+		
 		for (int i = 0; i < 100; i++) {
 			System.out.println(i + "번");
 			System.out.println(naver.getTitle()[i] + " " + naver.getPrice()[i]);

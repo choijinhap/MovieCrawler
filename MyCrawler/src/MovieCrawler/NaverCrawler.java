@@ -35,6 +35,7 @@ public class NaverCrawler {
 
 	public void crawl() throws Exception {
 		int idx = 0;
+		System.out.println("네이버 크롤링중");
 		for (int pagenum = 1; pagenum < 6; pagenum++) {
 			if(idx>=size) {break;}
 			Elements movies = getMovies(pagenum);
@@ -60,8 +61,12 @@ public class NaverCrawler {
 				}
 				content[idx] = tempContent;
 				idx++;
+				if(idx%10==0) {
+					System.out.print("-");
+				}
 			}
 		}
+		System.out.println("");
 	}
 
 	public String[] getTitle() {

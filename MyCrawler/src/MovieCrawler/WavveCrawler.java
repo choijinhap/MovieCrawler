@@ -32,6 +32,7 @@ public class WavveCrawler {
 		JSONObject jObject = (JSONObject) parser.parse(doc.text());
 		JSONObject ct = (JSONObject) jObject.get("cell_toplist");
 		JSONArray cl = (JSONArray) ct.get("celllist");
+		System.out.println("웨이브 크롤링중");
 		for (int i = 0; i < cl.size(); i++) {
 			JSONObject tl = (JSONObject) cl.get(i);
 			JSONArray ti = (JSONArray) tl.get("title_list");
@@ -68,8 +69,11 @@ public class WavveCrawler {
 			 * JSONObject ui=(JSONObject) el.get(1); String deurl=ui.get("url").toString();
 			 * System.out.println(deurl);
 			 */
-
+			if(i%(size/10)==0) {
+				System.out.print("-");
+			}
 		}
+		System.out.println(" ");
 	}
 
 	public String[] getTitle() {

@@ -27,15 +27,21 @@ public class Yes24Crawler {
 
 	public void crawl() throws Exception {
 		int idx = 0;
-		for (int i = 1; i < 11; i++) {
+		System.out.println("예스24 크롤링중");
+		for (int i = 1; i < (size/10)+2; i++) {
 			Elements movies = getMovies(i);
 			for (int j = 1; j < 20; j += 2) {
+				if(idx>=size) {break;}
 				Element element = movies.get(j);
 				title[idx] = element.select(".b_list_t").text();
 				price[idx] = element.select(".b_score").text().trim().split(" ")[1].replace("원", "");
 				idx++;
+				if(idx%(size/10)==0) {
+					System.out.print("-");
+				}
 			}
 		}
+		System.out.println("");
 	}
 
 	public void test() throws Exception {
