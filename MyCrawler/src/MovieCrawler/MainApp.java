@@ -13,6 +13,7 @@ public class MainApp {
 		 * 드라이버설정
 		 * 크롬 브라우저에 chrome://version/ 들어가서 버전에맞는 드라이버 설치후 경로 설정
 		 */
+		/*
 		WebDriver driver;
 		String driverPath="D:\\chromedriver.exe";
 		//String driverPath="/Users/choijinhap/chromedriver";
@@ -24,40 +25,49 @@ public class MainApp {
 		driver = new ChromeDriver(chromeOptions);
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
+		*/
 		
 		
-		//네이버는 인기순위가 100위까지 밖에없음
-		NaverCrawler naver = new NaverCrawler(80);
+		/*
+		 * 생성자 인자는 크롤링할 개수
+		 * 네이버는 사이트 자체에 100위까지 밖에 없음
+		 * yes24는 현재 100위까지만 구하도록 구현
+		 * 웨이브는 500위 까지는 테스트 완료
+		 */
+	
+		
+		NaverCrawler naver = new NaverCrawler(100);
 		
 		Yes24Crawler yes24 = new Yes24Crawler(100);
 		
-		//wavve의 경우 500위까지는 확인됨 그이상은 확인 안해봄.
-		WavveCrawler wavve = new WavveCrawler(500);
+		WavveCrawler wavve = new WavveCrawler(100);
+		
 		/* 
+		 * 크롤러들 공통 변수
+		 * 
 		 * String[] title; 
 		 * String[] price; 
 		 * 
-		 * NaverCrawler만 가지고 있음
+		 * --NaverCrawler만 가지고 있음--
 		 * String[] imgURI; 
 		 * String[] linkURL; 
 		 * String[] content; 
 		 * String[] type;
 		 */
-		naver.crawl();
-	//	yes24.crawl();
-		//wavve.crawl();
 		
-		for(int i=0;i<80;i++) {
-			System.out.println(i+" "+naver.getTitle()[i]);
-		}
-		/*
+		naver.crawl();
+		yes24.crawl();
+		wavve.crawl();
+		
+		//테스트
 		for (int i = 0; i < 100; i++) {
 			System.out.println(i + "번");
 			System.out.println(naver.getTitle()[i] + " " + naver.getPrice()[i]);
 			System.out.println(yes24.getTitle()[i] + " " + yes24.getPrice()[i]);
+			System.out.println(wavve.getTitle()[i] + " " + wavve.getPrice()[i]);
 			System.out.println("======");
 		}
-		*/
+		
 	}
 
 }
