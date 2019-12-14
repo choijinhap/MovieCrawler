@@ -27,14 +27,14 @@ public class Yes24Crawler {
 
 	public void crawl() throws Exception {
 		int idx = 0;
-		System.out.println("¿¹½º24 Å©·Ñ¸µÁß");
+		System.out.println("ì˜ˆìŠ¤24 í¬ë¡¤ë§ì¤‘ ");
 		for (int i = 1; i < (size/10)+2; i++) {
 			Elements movies = getMovies(i);
 			for (int j = 1; j < 20; j += 2) {
-				if(idx>=size) {break;}
+				if(idx>=size) {return;}
 				Element element = movies.get(j);
 				title[idx] = element.select(".b_list_t").text();
-				price[idx] = element.select(".b_score").text().trim().split(" ")[1].replace("¿ø", "");
+				price[idx] = element.select(".b_score").text().trim().split(" ")[1].replace("ï¿½ï¿½", "");
 				idx++;
 				if(idx%(size/10)==0) {
 					System.out.print("-");
@@ -51,7 +51,7 @@ public class Yes24Crawler {
 			Element element = movies.get(i);
 			System.out.println("-----");
 			System.out.println(element.select(".b_list_t").text());
-			System.out.println(element.select(".b_score").text().trim().split(" ")[1].replace("¿ø", ""));
+			System.out.println(element.select(".b_score").text().trim().split(" ")[1].replace("ï¿½ï¿½", ""));
 			System.out.println("-----");
 		}
 	}

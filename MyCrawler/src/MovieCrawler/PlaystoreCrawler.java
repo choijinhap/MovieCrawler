@@ -27,6 +27,7 @@ public class PlaystoreCrawler {
 	}
 
 	public void crawl() throws Exception {
+	System.out.println("플레이스토어 크롤링중 ");
 		driver.get(URL);
 		Thread.sleep(3000);
 		for (int i = 0; i < 24; i++) {
@@ -42,6 +43,9 @@ public class PlaystoreCrawler {
 			price[j] = prices.get(j).getText().replaceAll("[^0-9]", "");
 			title[j] = titles.get(j).getText();
 			// driver.close();
+			if(j%(size/10)==0) {
+				System.out.print("-");
+			}
 		}
 	}
 

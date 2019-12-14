@@ -36,11 +36,11 @@ public class MainApp {
 
 		NaverCrawler naver = new NaverCrawler(100);
 
-		Yes24Crawler yes24 = new Yes24Crawler(100);
+		Yes24Crawler yes24 = new Yes24Crawler(200);
 
-		WavveCrawler wavve = new WavveCrawler(100);
+		WavveCrawler wavve = new WavveCrawler(200);
 
-		PlaystoreCrawler ps = new PlaystoreCrawler(100, driver);
+		PlaystoreCrawler ps = new PlaystoreCrawler(200, driver);
 
 		/* 
 		 * 크롤러들 공통 변수
