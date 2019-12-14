@@ -10,65 +10,57 @@ public class MainApp {
 
 	public static void main(String[] args) throws Exception {
 		/*
-		 * µå¶óÀÌ¹ö¼³Á¤
-		 * Å©·Ò ºê¶ó¿ìÀú¿¡ chrome://version/ µé¾î°¡¼­ ¹öÀü¿¡¸Â´Â Å©·Òµå¶óÀÌ¹ö ¼³Ä¡ÈÄ °æ·Î ¼³Á¤
+		 * ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ chrome://version/ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½ Å©ï¿½Òµï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½
+		 * ï¿½ï¿½ï¿½ï¿½
 		 */
-		
+
 		WebDriver driver;
-		String driverPath="D:\\chromedriver.exe";
-		//String driverPath="/Users/choijinhap/chromedriver";
-		
+		// String driverPath="D:\\chromedriver.exe";
+		String driverPath = "/Users/choijinhap/chromedriver";
+
 		System.setProperty("webdriver.chrome.driver", driverPath);
-		ChromeOptions chromeOptions = new ChromeOptions(); 
-		chromeOptions.addArguments("--headless"); 
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.addArguments("--headless");
 		chromeOptions.addArguments("--no-sandbox");
 		driver = new ChromeDriver(chromeOptions);
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
-		
-		
-		
+
 		/*
-		 * »ý¼ºÀÚ ÀÎÀÚ´Â Å©·Ñ¸µÇÒ °³¼ö
-		 * ³×ÀÌ¹ö´Â »çÀÌÆ® ÀÚÃ¼¿¡ 100À§±îÁö ¹Û¿¡ ¾øÀ½
-		 * ¿¹½º24,¿þÀÌºê´Â 500À§±îÁö Å×½ºÆ®¿Ï·á
+		 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú´ï¿½ Å©ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã¼ï¿½ï¿½ 100ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½24,ï¿½ï¿½ï¿½Ìºï¿½ï¿½
+		 * 500ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ®ï¿½Ï·ï¿½
 		 */
-	
+
 		NaverCrawler naver = new NaverCrawler(100);
-		
+
 		Yes24Crawler yes24 = new Yes24Crawler(100);
-		
+
 		WavveCrawler wavve = new WavveCrawler(100);
-		PlaystoreCrawler ps=new PlaystoreCrawler(100, driver);
-		
-		/* 
-		 * Å©·Ñ·¯µé °øÅë º¯¼ö
-		 * 
-		 * String[] title; 
-		 * String[] price; 
-		 * 
-		 * --NaverCrawler¸¸ °¡Áö°í ÀÖÀ½--
-		 * String[] imgURI; 
-		 * String[] linkURL; 
-		 * String[] content; 
-		 * String[] type;
-		 */
-		
-		//naver.crawl();
-		//yes24.crawl();
-		//wavve.crawl();
-		ps.crawl();
-		
-		//Å×½ºÆ®
+
+		PlaystoreCrawler ps = new PlaystoreCrawler(100, driver);
+
 		/*
-		for (int i = 0; i < 100; i++) {
-			System.out.println(i + "¹ø");
-			System.out.println(naver.getTitle()[i] + " " + naver.getPrice()[i]);
-			System.out.println(yes24.getTitle()[i] + " " + yes24.getPrice()[i]);
-			System.out.println(wavve.getTitle()[i] + " " + wavve.getPrice()[i]);
-			System.out.println("======");
-		}
-		*/
+		 * Å©ï¿½Ñ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		 * 
+		 * String[] title; String[] price;
+		 * 
+		 * --NaverCrawlerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½-- String[] imgURI; String[] linkURL; String[]
+		 * content; String[] type;
+		 */
+
+		naver.crawl();
+		yes24.crawl();
+		wavve.crawl();
+		ps.crawl();
+
+		// ï¿½×½ï¿½Æ®
+		/*
+		 * for (int i = 0; i < 100; i++) { System.out.println(i + "ï¿½ï¿½");
+		 * System.out.println(naver.getTitle()[i] + " " + naver.getPrice()[i]);
+		 * System.out.println(yes24.getTitle()[i] + " " + yes24.getPrice()[i]);
+		 * System.out.println(wavve.getTitle()[i] + " " + wavve.getPrice()[i]);
+		 * System.out.println("======"); }
+		 */
 	}
 
 }
