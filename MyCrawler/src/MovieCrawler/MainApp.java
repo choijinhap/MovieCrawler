@@ -10,8 +10,8 @@ public class MainApp {
 
 	public static void main(String[] args) throws Exception {
 		/*
-		 * ����̹����� ũ�� �������� chrome://version/ ���� �������´� ũ�ҵ���̹� ��ġ�� ���
-		 * ����
+		 * 드라이버설정
+		 * 크롬 브라우저에 chrome://version/ 들어가서 버전에맞는 크롬드라이버 설치후 경로 설정
 		 */
 
 		WebDriver driver;
@@ -26,9 +26,12 @@ public class MainApp {
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
 
+
 		/*
-		 * ������ ���ڴ� ũ�Ѹ��� ���� ���̹��� ����Ʈ ��ü�� 100������ �ۿ� ���� ����24,���̺��
-		 * 500������ �׽�Ʈ�Ϸ�
+		 * 생성자 인자는 크롤링할 개수
+		 * 네이버는 사이트 자체에 100위까지 밖에 없음
+		 * 예스24,웨이브는 500위까지 테스트완료
+		 * 플레이스토어는 200위까지 밖에 없
 		 */
 
 		NaverCrawler naver = new NaverCrawler(100);
@@ -39,13 +42,17 @@ public class MainApp {
 
 		PlaystoreCrawler ps = new PlaystoreCrawler(100, driver);
 
-		/*
-		 * ũ�ѷ��� ���� ����
+		/* 
+		 * 크롤러들 공통 변수
 		 * 
-		 * String[] title; String[] price;
+		 * String[] title; 
+		 * String[] price; 
 		 * 
-		 * --NaverCrawler�� ������ ����-- String[] imgURI; String[] linkURL; String[]
-		 * content; String[] type;
+		 * --NaverCrawler만 가지고 있음--
+		 * String[] imgURI; 
+		 * String[] linkURL; 
+		 * String[] content; 
+		 * String[] type;
 		 */
 
 		naver.crawl();
@@ -53,7 +60,7 @@ public class MainApp {
 		wavve.crawl();
 		ps.crawl();
 
-		// �׽�Ʈ
+		// 테스트 
 		/*
 		 * for (int i = 0; i < 100; i++) { System.out.println(i + "��");
 		 * System.out.println(naver.getTitle()[i] + " " + naver.getPrice()[i]);
