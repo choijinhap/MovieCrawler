@@ -64,7 +64,7 @@ public class NaverCrawler {
 		driver.findElement(By.xpath(xpath)).click();
 	
 		//맥이면 이거 사용 
-		//action.keyDown(Keys.COMMAND).sendKeys("v").keyUp(Keys.COMMAND).perform();
+//		action.keyDown(Keys.COMMAND).sendKeys("v").keyUp(Keys.COMMAND).perform();
 		//윈도우면 이거 사용 
 		action.keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).build().perform();
 
@@ -72,7 +72,7 @@ public class NaverCrawler {
 	
 	public Map<String,String> getCookies() throws Exception{
 		driver.get("https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com");
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		
 		cb_input("//*[@id='id']", naverID);
 		Thread.sleep(500);
