@@ -31,10 +31,10 @@ public class Yes24Crawler {
 		for (int i = 1; i < (size/10)+2; i++) {
 			Elements movies = getMovies(i);
 			for (int j = 1; j < 20; j += 2) {
-				if(idx>=size) {return;}
+				if(idx>=size) {System.out.println(""); return;}
 				Element element = movies.get(j);
 				title[idx] = element.select(".b_list_t").text();
-				price[idx] = element.select(".b_score").text().trim().split(" ")[1].replace("��", "");
+				price[idx] = element.select(".b_score").text().trim().split(" ")[1].replace("원", "");
 				idx++;
 				if(idx%(size/10)==0) {
 					System.out.print("-");
@@ -51,7 +51,7 @@ public class Yes24Crawler {
 			Element element = movies.get(i);
 			System.out.println("-----");
 			System.out.println(element.select(".b_list_t").text());
-			System.out.println(element.select(".b_score").text().trim().split(" ")[1].replace("��", ""));
+			System.out.println(element.select(".b_score").text().trim().split(" ")[1].replace("원", ""));
 			System.out.println("-----");
 		}
 	}
