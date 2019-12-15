@@ -20,8 +20,9 @@ public class MainApp {
 
 		System.setProperty("webdriver.chrome.driver", driverPath);
 		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--headless");
-		chromeOptions.addArguments("--no-sandbox");
+	//	chromeOptions.addArguments("--headless");
+	//	chromeOptions.addArguments("--no-sandbox");
+		chromeOptions.addArguments("Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0");
 		driver = new ChromeDriver(chromeOptions);
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
@@ -34,7 +35,7 @@ public class MainApp {
 		 * 플레이스토어는 200위까지 밖에 없
 		 */
 
-		NaverCrawler naver = new NaverCrawler(100);
+		NaverCrawler naver = new NaverCrawler(100,driver);
 
 		Yes24Crawler yes24 = new Yes24Crawler(200);
 
@@ -56,9 +57,9 @@ public class MainApp {
 		 */
 
 		naver.crawl();
-		yes24.crawl();
-		wavve.crawl();
-		ps.crawl();
+	//	yes24.crawl();
+	//	wavve.crawl();
+	//	ps.crawl();
 
 		// 테스트 
 		/*
