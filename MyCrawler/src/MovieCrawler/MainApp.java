@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.google.api.core.ApiFuture;
 import com.google.auth.oauth2.GoogleCredentials;
@@ -22,9 +23,8 @@ public class MainApp {
 		WebDriver psdriver;
 		WebDriver naverdriver;
 		
-		Firebase fb= new Firebase("D:\\google-services.json");
-		fb.push();
-
+		//Firebase fb= new Firebase("D:\\google-services.json");
+		Firebase fb=new Firebase("/Users/choijinhap/google-services.json");
 		/*
 		 * 드라이버설정
 		 * 파이어폭스 설치 및 https://github.com/mozilla/geckodriver/releases/tag/v0.26. 에서 자기컴에 맞는 드라이버 설치 후 경로 설정 
@@ -50,9 +50,16 @@ public class MainApp {
 		 * 네이버시리즈 청불 컨텐츠 떄문에 아이디와 패스워드필요 
 		 * 
 		 * */
-		String naverID="";
-		String naverPW="";
-		
+		String naverID="pppooo95";
+		String naverPW="vlsemvnf!@";
+		String driverPath = "/Users/choijinhap/geckodriver";
+		System.setProperty("webdriver.gecko.driver", driverPath);
+		naverdriver = new FirefoxDriver();
+		NaverCrawler naver = new NaverCrawler(100,naverdriver,naverID,naverPW);
+		naver.crawl();
+		fb.push(naver);
+		naverdriver.quit();
+		fb.end();
 		/*
 		 * 생성자 인자는 크롤링할 개수
 		 * 네이버는 사이트 자체에 100위까지 밖에 없음

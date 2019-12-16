@@ -64,9 +64,9 @@ public class NaverCrawler {
 		driver.findElement(By.xpath(xpath)).click();
 	
 		//맥이면 이거 사용 
-//		action.keyDown(Keys.COMMAND).sendKeys("v").keyUp(Keys.COMMAND).perform();
+		action.keyDown(Keys.COMMAND).sendKeys("v").keyUp(Keys.COMMAND).perform();
 		//윈도우면 이거 사용 
-		action.keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).build().perform();
+//		action.keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).build().perform();
 
 	}
 	
