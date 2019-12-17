@@ -50,8 +50,8 @@ public class MainApp {
 		 * 네이버시리즈 청불 컨텐츠 떄문에 아이디와 패스워드필요 
 		 * 
 		 * */
-		String naverID="pppooo95";
-		String naverPW="vlsemvnf!@";
+		String naverID="";
+		String naverPW="";
 		String driverPath = "/Users/choijinhap/geckodriver";
 		System.setProperty("webdriver.gecko.driver", driverPath);
 		naverdriver = new FirefoxDriver();
